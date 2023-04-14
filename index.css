@@ -54,16 +54,19 @@
       background: #ddd;
     }
     
-    ul li.checked {
-      background: #276678;
-      color: #fff;
+    .checked {
+      background: #3fb225;
+      color: #b8f0b3;
       text-decoration: line-through;
+
     }
+
     
+    /*
     ul li.checked::before {
       content: "";
       position: absolute;
-      border-color: #fff;
+      border-color: #ffffff;
       border-style: solid;
       border-width: 0 2px 2px 0;
       top: 10px;
@@ -72,6 +75,8 @@
       height: 15px;
       width: 7px;
     }
+*/
+    
     
     .close {
       position: absolute;
