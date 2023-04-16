@@ -1,6 +1,6 @@
 
 /*****reset button******/
-.reset {
+ .reset {
     float: left;
     margin-right: 10px;
     margin-top: 0px;
@@ -50,15 +50,21 @@
       background: #f9f9f9;
     }
     
-    ul li:hover {
+   /* ul li:hover {
       background: #ddd;
-    }
+    }  
+    */
+
+    .trash:hover {
+        
+    color: #ff0000
+      }  
     
     .checked {
-      background: #3fb225;
-      color: #b8f0b3;
+      background: #ebfae8;
+      color: #7cd689;
       text-decoration: line-through;
-
+      font-weight: bold;
     }
 
     
