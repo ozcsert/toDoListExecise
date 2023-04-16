@@ -46,7 +46,7 @@ function addToDo(toDO, id, done, trash) {
     const item =   `<li class= "${LINE}" > 
                         <i class=" ${DONE} " job="complete" id="${id}" ></i> 
                         ${toDO} 
-                        <i style="float: right;" class= "fa fa-trash-o de trash" job="delete" id="${id}" ></i>
+                        <i style="float:right" class= "fa fa-trash-o de trash" job="delete" id="${id}" ></i>
                     </li>`
 
 
@@ -84,8 +84,7 @@ document.addEventListener ("keyup", function(event){
 )
 
 
-
-addToDo("cof", 0, true, false); 
+//addToDo("cof", 0, true, false);  Test
 
 
 

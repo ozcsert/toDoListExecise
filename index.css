@@ -18,6 +18,8 @@
     margin-bottom: 2px;
   }
   
+
+
   .reset:hover {
     background-color: #af751e;
   }
@@ -32,6 +34,7 @@
     }
     
     ul li {
+      margin-top: 4px;
       cursor: pointer;
       position: relative;
       padding: 12px 8px 12px 40px;
@@ -98,10 +101,13 @@
     }
     
     .header {
-      background-color: #f78501;
+      margin-top: 30px;
+      background-color: #6123b3;
       padding: 30px 40px;
       color: white;
       text-align: center;
+      border-radius: 25px;
+      
     }
     
     img {
@@ -118,7 +124,7 @@
       margin: 0;
       border: none;
       border-radius: 0;
-      width: 75%;
+      width: 73%;
       padding: 10px;
       float: left;
       font-size: 16px;
