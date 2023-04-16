@@ -1,19 +1,38 @@
-const clearDOM = document.querySelector(".clear")
+
 const listDOM = document.getElementById("list")
 const inputDOM = document.getElementById("input")
 const resetDOM = document.getElementById("reset")
+//Tamamlandi-Tamamlanmadi switchine daha duzenli sekilde atama yapabilmek icin degiskenlerimizi belirliyoruz. 
+const CHECK = "bi-check2-circle"; //Tamamlanmis iconu class-fontawesome
+const UNCHECK = "bi-circle"; //Tamamlanmadi iconu class-fontawesomne
+const LINETHROUGH = "checked";//Ustu cizili iconu class-css
+
 
 
 
 //STORAGE VARIABLES
 
-let LIST = []
-    , id = 0;
+let LIST, id;
 
-//Tamamlandi-Tamamlanmadi switchine daha duzenli sekilde atama yapabilmek icin degiskenlerimizi belirliyoruz. 
-const CHECK = "bi-check2-circle"; //Tamamlanmis iconu class-fontawesome
-const UNCHECK = "bi-circle"; //Tamamlanmadi iconu class-fontawesomne
-const LINETHROUGH = "checked";//Ustu cizili iconu class-css
+    //get item from localstorage
+    let data = localStorage.getItem("TODO");
+    //check if data is not empty
+    if(data) {
+        LIST = JSON.parse(data);
+        id = LIST.length;// set the id to the last one in the list
+        loadList(LIST); // load the list to the user interface
+    }else{
+        //if data isnt empty
+        LIST= [];
+        id = 0;
+    }
+
+    //load items to thhe users interface
+    function loadList(array) {
+        array.forEach(function(item) {
+            addToDo(item.name, item.id, item.done, item.trash);
+        });
+    }
 
 
 //Ekleme function
@@ -55,6 +74,9 @@ document.addEventListener ("keyup", function(event){
             done : false,
             trash : false
         })
+
+            // add item to localStorage(this code )
+    localStorage.setItem("TODO", JSON.stringify(LIST)); 
         id++;
         
       } 
@@ -84,15 +106,13 @@ function removeToDo(element) {
     LIST[element.id].trash = true;
 }
 
-//function reset(resetDOM) {
-//    resetDOM.addEventListener("click", (event) => { 
-//        listDOM bunyesindeki butun childlari bir array haline get ir.  a git . If there are elements. loop through them and delete them one by one. stop when it reaches 0. 
-//
-//    });
-//
-//    onclick = (event) => {};
-//
-//}
+
+resetDOM.addEventListener("click", function(){ 
+        localStorage.clear();
+        location.reload();
+        //listDOM bunyesindeki butun childlari bir array haline get ir.  a git . If there are elements. loop through them and delete them one by one. stop when it reaches 0. 
+
+    });
 
 
 listDOM.addEventListener("click", function(event){
@@ -105,6 +125,8 @@ listDOM.addEventListener("click", function(event){
     } else if (elementJob == "delete") {
         removeToDo(element);
     }
+        // add item to localStorage(this code )
+        localStorage.setItem("TODO", JSON.stringify(LIST)); 
 })
 
 
